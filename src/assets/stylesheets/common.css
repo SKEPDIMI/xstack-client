@@ -1,0 +1,213 @@
+html {box-sizing: border-box;}
+
+.view, #drawer {
+  transition: all 0.5s ease;
+}
+
+a {
+  color: lightgray;
+  transition: .2s all ease-in-out;
+}
+a:hover {
+  color: lightslategrey;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+.view {
+  overflow-x: hidden;
+	position: relative;
+	right: 0;
+  background: linear-gradient(to right, #101525 0%,#1e2638 50%,#101525 100%);
+}
+html, body, .app {
+  background: black;
+  width: 100vw;
+}
+.app.active-drawer {
+  overflow: hidden;
+  max-height: 100vh;
+}
+.app.active-drawer .view {
+  right: 300px;
+  overflow-y: hidden;
+}
+.app.active-drawer #drawer {
+  right: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 20px;
+  color: white;
+}
+.container {
+  text-align: left;
+  max-width: 45%;
+}
+.container p {
+  color: #656975;
+  font-size: 1.6em;
+}
+.container h1 {
+  letter-spacing: 1px;
+  font-weight: normal;
+  margin: 4px 0;
+  font-size: 2em;
+}
+.container button {
+  padding: 1.3em 1.75em;
+  border-radius: .5em;
+  font-weight: 600;
+  background: white;
+}
+.container button.secondary {
+  background-color: transparent;
+  border: 0 solid transparent;
+}
+.container button a {
+  color: #1E2330;
+  text-decoration: none;
+  transition: .2s all ease-in-out;
+}
+.container button.secondary a {
+  color: white;
+}
+.container button a:hover {
+  color: #656975;
+}
+.device-container {
+  height: 100%;
+  z-index: 10;
+  align-self: flex-end;
+  margin-left: auto;
+}
+.skew {
+  transform:skew(0deg,-5deg);
+  background-color: white;
+  padding:10em 0;
+  overflow-x: hidden;
+  margin-bottom: -10em;
+}
+.skew > div {
+  transform:skew(0deg, 5deg);
+  padding-bottom: 10em;
+}
+.body {
+  background-color: white;
+  width: 100%;
+  color: #616e82;
+  z-index: 10;
+  min-height: 100vh;
+  padding:2em;
+  text-align: left;
+}
+
+.body h1 {
+  color: #1E2330;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 1rem;
+}
+.row > div {
+  flex: 1;
+}
+.row > div:nth-child(1) {
+  margin-right: 1rem;
+}
+.row > div:nth-child(2) {
+  margin-left: 1rem;
+}
+.row a {
+  margin-top: 1em;
+  text-decoration: none;
+  color:rgb(25, 73, 194);
+  transition: .2s all ease-in-out;
+}
+.row a:hover {
+  color: #1E2330;
+  text-decoration: underline;
+}
+h1, h2 {
+  margin: 4px;
+  margin-left: 0;
+}
+.blockquote {
+  border-left:5px solid #cfcfcf;
+  border-radius: 2px;
+  padding: .5em;
+}
+.blockquote blockquote {
+  margin-left: 0;
+  font-weight: bold;
+}
+.card {
+  text-align: left;
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  min-height: 300px;
+  margin: 1rem;
+  padding: 1rem 2rem 1rem 1rem;
+  position: relative;
+}
+.img-frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.row .img-frame img {
+  max-width: 30vw;
+  border-radius: 5px;
+}
+@media screen and (min-width: 2500px) {
+  body {
+    font-size: larger;
+  }
+}
+@media screen and (max-width: 800px) {
+  .row {
+    flex-wrap: wrap;
+  }
+  .row > div {
+    min-width: 100%;
+  }
+  .device-container {
+    flex: 0;
+  }
+  .main {
+    min-height: 60vh;
+  }
+  .main .container {
+    min-width: 90%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .app.active-drawer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-height: 100%;
+  }
+  .app.active-drawer .view {
+    right: 0;
+  }
+  #drawer {
+    position: static;
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .app.active-drawer #drawer {
+    height: 90vh;
+  }
+}
