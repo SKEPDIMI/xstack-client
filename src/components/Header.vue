@@ -97,24 +97,6 @@ export default {
   header img {
     height: 2.5em;
   }
-  /*
-  header.active {
-    background-color: #1E2330;
-  }
-  header.active a {
-    color: white;
-    transition: .2s all ease-in-out;
-  }
-  header.active a.active {
-    color: #666c78;
-  }
-  header.active a:hover {
-    color: #666c78;
-  }
-  header.active a.button {
-    color: white;
-  }
-  */
 
   header .toggle {
     width: 10vh;
