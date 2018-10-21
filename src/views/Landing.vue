@@ -18,9 +18,9 @@
           </button>
         </div>
       </div>
-      <div class="device-container" ref="device">
+      <!--<div class="device-container" ref="device">
         <Device/>
-      </div>
+      </div>-->
     </div>
 
     <div class="skew">
@@ -99,8 +99,8 @@ export default {
     const controller = new this.$scrollmagic.Controller();
 
     timeline
-      .fromTo(mainContainer, 1.75, { x: -200, opacity: 1 }, { x: 0, opacity: 1 })
-      .fromTo(device, 0.8, { x: 200, opacity: 0 }, { x: 0, opacity: 1 });
+      .fromTo(mainContainer, 1.25, { x: -200, opacity: 1 }, { x: 0, opacity: 1 })
+      // .fromTo(device, 0.8, { x: 200, opacity: 0 }, { x: 0, opacity: 1 });
   },
 };
 </script>

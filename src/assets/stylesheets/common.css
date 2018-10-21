@@ -40,6 +40,7 @@ html, body, .app {
   justify-content: space-between;
   padding: 1em 20px;
   color: white;
+  min-height: 70vh;
 }
 .container {
   text-align: left;
@@ -162,6 +163,12 @@ h1, h2 {
 .row .img-frame img {
   max-width: 30vw;
   border-radius: 5px;
+}
+.mute {
+  color: rgb(156, 156, 156);
+}
+.error {
+  color: rgb(255, 101, 101);
 }
 @media screen and (min-width: 2500px) {
   body {

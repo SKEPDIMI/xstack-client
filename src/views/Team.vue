@@ -15,8 +15,8 @@ export default {
 }
 </script>
 
-<style>
-.main {
+<style scoped>
+.team .main {
   justify-content: center;
 }
 </style>
