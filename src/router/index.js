@@ -7,6 +7,7 @@ import Team from '@/views/Team';
 import Blog from '@/views/Blog';
 import Contact from '@/views/forms/Contact';
 import Join from '@/views/Join';
+import Login from '@/views/forms/Login';
 
 Vue.use(Router);
 
@@ -46,12 +47,17 @@ export default new Router({
       path: '/contact',
       name: 'Contact',
       component: Contact
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     }
   ],
   scrollBehavior (to, from, savedPosition) {
     const app = document.querySelector('.app');
     app.classList.remove('active-drawer');
-    
+
     return { x: 0, y: 0 }
   },
 });
