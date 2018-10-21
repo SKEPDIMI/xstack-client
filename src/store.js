@@ -13,7 +13,7 @@ const defaultUser = {
   bio: '',
   description: '',
 
-  authorized: false,
+  authenticated: false,
   loading: true,
   token: null
 }
@@ -29,12 +29,14 @@ const currentUser = {
       }
     },
     setUser: (state, user) => {
+      console.log('beofre', state)
       state = {
         ...defaultUser,
         ...user,
         loading: false,
-        authorized: true
+        authenticated: true
       }
+      console.log('after', state)
     },
     setTokenFromHeaders: (state, headers) => {
       state.token = {
