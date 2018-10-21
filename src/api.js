@@ -6,7 +6,10 @@ const api = create({
 });
 
 api.addResponseTransform(response => {
-  response.body = {...response}
+  // this puts all of the response.data into response.body
+  // this is to avoid accessing response's data like `response.data.data`, but rather `response.body.data`
+
+  response.body = {...response.data}
   response.data = null
 })
 
