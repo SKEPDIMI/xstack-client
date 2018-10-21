@@ -49,6 +49,9 @@ export default new Router({
     }
   ],
   scrollBehavior (to, from, savedPosition) {
+    const app = document.querySelector('.app');
+    app.classList.remove('active-drawer');
+    
     return { x: 0, y: 0 }
   },
 });
