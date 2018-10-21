@@ -1,3 +1,8 @@
+import Vue from 'vue';
+import Vuex from 'vuex';
+
+Vue.use(Vuex);
+
 const defaultUser = {
   email: '',
   id: null,
@@ -6,10 +11,8 @@ const defaultUser = {
   loading: true,
 }
 
-export default new Vuex.Store({
-  state: {
-    currentUser: defaultUser,
-  },
+const currentUser = {
+  state: {...defaultUser},
   mutations: {
     setDefault: state => ({
       ...defaultUser,
@@ -21,5 +24,11 @@ export default new Vuex.Store({
       loading: false,
       authorized: true
     })
+  }
+}
+
+export default new Vuex.Store({
+  modules: {
+    currentUser
   }
 });
