@@ -2,16 +2,16 @@
   <div class="login">
     <div class="form-container">
       <div class="f-header">
-        <h2>Log in</h2>
+        <h2>LOG IN</h2>
         <img src="../../assets/logo/1.png" alt="">
       </div>
       <hr>
-      <form action="">
+      <form v-on:submit.prevent="handleSubmit">
         <label>email</label>
-        <input type="text" name="email">
+        <input type="email" name="email" required>
         <label>password</label>
-        <input type="text" name="password">
-
+        <input type="password" name="password" required>
+        <span class="mute" ref="message">{{message}}</span>
         <button>Log In</button>
       </form>
     </div>
@@ -19,8 +19,56 @@
 </template>
 
 <script>
+import api from '../../api';
+
 export default {
   name: 'Login',
+  data: () => ({
+    message: '',
+  }),
+  methods: {
+    handleSubmit(event) {
+      const f = new FormData(event.target);
+
+      this.setMessage('logging in...');
+
+      api.post('/auth/sign_in', f)
+      .then(res => {
+        if (res.ok) {
+          this.$store.commit('currentUser/setUser', res.body.data);
+          this.$store.commit('currentUser/setTokenFromHeaders', res.headers);
+
+          this.$router.push('me');
+        } else {
+          const errors = res.data.errors;
+
+          if(!errors.length) {
+            this.setErrorMessage('Could not log in. Please try again later');
+          } else {
+            this.setErrorMessage(errors[0]);
+          }
+        }
+      });
+    },
+    setMessage(m) {
+      let {
+        message
+      } = this.$refs;
+
+      message.classList.remove('error');
+      message.classList.add('mute');
+      this.message = m
+    },
+    setErrorMessage(error) {
+      let {
+        message
+      } = this.$refs;
+
+      message.classList.remove('mute');
+      message.classList.add('error');
+      this.message = error
+    }
+  }
 }
 </script>
 
