@@ -8,6 +8,7 @@ import Blog from '@/views/Blog';
 import Contact from '@/views/forms/Contact';
 import Join from '@/views/Join';
 import Login from '@/views/forms/Login';
+import Account from '@/views/Account';
 
 Vue.use(Router);
 
@@ -52,7 +53,12 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
-    }
+    },
+    {
+      path: '/me',
+      name: 'Account',
+      component: Account,
+    },
   ],
   scrollBehavior (to, from, savedPosition) {
     const app = document.querySelector('.app');
