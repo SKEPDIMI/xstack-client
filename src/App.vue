@@ -25,8 +25,8 @@ export default {
       api.get('/auth/validate_token', tokenHeaders)
       .then(res => {
         if (res.ok) {
-          this.$store.commit('currentUser/setUser', res.body.data);
-          this.$store.commit('currentUser/setTokenFromHeaders', res.headers);
+          this.$store.commit('setUser', res.body.data);
+          this.$store.commit('setTokenFromHeaders', res.headers);
         } else {
           store.remove('DVSE_XSTK_AUTH')
         }
