@@ -16,8 +16,9 @@
       <router-link :to="'/blog'" active-class="active">BLOG</router-link>
       -->
 
-      <router-link :to="'/login'" active-class="active">LOGIN</router-link>
-      <router-link :to="'/signup'" active-class="active" class="button">SIGN UP</router-link>
+      <router-link :to="'/me'" active-class="active" class="button"  v-if="currentUser.authenticated">ACCOUNT</router-link>
+      <router-link :to="'/login'" active-class="active" v-if="!currentUser.authenticated">LOGIN</router-link>
+      <router-link :to="'/signup'" active-class="active" class="button" v-if="!currentUser.authenticated">SIGN UP</router-link>
       <div v-on:click="toggleSidemenu" class="toggle" ref="toggleButton">
         <span class="bar one" ref="burgerTop"></span>
         <span class="bar two" ref="burgerMid"></span>
@@ -39,6 +40,9 @@ export default {
       altBackground() {
           const path = this.$route.path.split('/')
           return path.join('/').toLowerCase() === '/team/join'
+      },
+      currentUser() {
+        return this.$store.state.currentUser
       }
   },
 };

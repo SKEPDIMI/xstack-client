@@ -6,18 +6,25 @@
       <router-link :to="'/about'" active-class="active">ABOUT</router-link>
       <router-link :to="'/contact'" active-class="active">CONTACT</router-link>
       <router-link :to="'/team'" active-class="active">TEAM</router-link>
-      <router-link :to="'/team/join'" active-class="active">JOIN TEAM</router-link>
+      <router-link :to="'/team/join'" active-class="active" v-if="!currentUser.authenticated">JOIN TEAM</router-link>
       <router-link :to="'/blog'" active-class="active">BLOG</router-link>
 
-      <router-link :to="'/login'">LOGIN</router-link>
-      <router-link :to="'/signup'">SIGNUP</router-link>
+      <router-link :to="'/me'" v-if="currentUser.authenticated">ACCOUNT</router-link>
+
+      <router-link :to="'/login'" v-if="!currentUser.authenticated">LOGIN</router-link>
+      <router-link :to="'/signup'" v-if="!currentUser.authenticated">SIGNUP</router-link>
     </ul>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'Sidemenu',
+  computed: mapState([
+    'currentUser'
+  ])
 }
 </script>
 
