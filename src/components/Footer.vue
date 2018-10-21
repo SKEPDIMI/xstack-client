@@ -27,9 +27,11 @@
       <div>
         <h2>Get in touch</h2>
         <ul>
-          <li>engage@xstack.com</li>
+          <li><a href="mailto:xstack.co@gmail.com">xstack.co@gmail.com</a></li>
           <li>-</li>
-          <li>939 332 1562</li>
+          <li><a href="tel:9393321562">+1 939 332 1562</a></li>
+          <li>-</li>
+          <a href="https://instagram.com/xstack.co">instagram</a>
         </ul>
       </div>
       <div>
