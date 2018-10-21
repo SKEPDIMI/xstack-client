@@ -8,6 +8,9 @@
       <router-link :to="'/team'" active-class="active">TEAM</router-link>
       <router-link :to="'/team/join'" active-class="active">JOIN TEAM</router-link>
       <router-link :to="'/blog'" active-class="active">BLOG</router-link>
+
+      <router-link :to="'/login'">LOGIN</router-link>
+      <router-link :to="'/signup'">SIGNUP</router-link>
     </ul>
   </div>
 </template>
