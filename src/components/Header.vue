@@ -72,7 +72,9 @@ export default {
     transition: .2s all ease-in-out;
   }
   header a:hover {
-    color: white
+    color: white;
+    margin-left: 1px;
+    margin-right: 1px;
   }
   header a.active {
     color: white;
