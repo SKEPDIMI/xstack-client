@@ -18,25 +18,25 @@ const defaultUser = {
   token: null
 }
 
-const currentUser = {
-  namespaced: true,
-  state: {...defaultUser},
+export default new Vuex.Store({
+  state: {
+    currentUser: { ...defaultUser },
+    token: {}
+  },
   mutations: {
-    setDefault: state => {
-      state = {
-        ...defaultUser,
-        loading: false
-      }
-    },
     setUser: (state, user) => {
-      console.log('beofre', state)
-      state = {
+      state.currentUser = {
         ...defaultUser,
         ...user,
         loading: false,
         authenticated: true
       }
-      console.log('after', state)
+    },
+    setDefault: state => {
+      state.currentUser = {
+        ...defaultUser,
+        loading: false
+      }
     },
     setTokenFromHeaders: (state, headers) => {
       state.token = {
@@ -49,11 +49,5 @@ const currentUser = {
 
       store.set('DVSE_XSTK_AUTH', state.token)
     }
-  }
-}
-
-export default new Vuex.Store({
-  modules: {
-    currentUser
   }
 });
