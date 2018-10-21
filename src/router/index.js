@@ -8,6 +8,7 @@ import Blog from '@/views/Blog';
 import Contact from '@/views/forms/Contact';
 import Join from '@/views/Join';
 import Login from '@/views/forms/Login';
+import Signup from '@/views/forms/Signup';
 import Account from '@/views/Account';
 
 Vue.use(Router);
@@ -53,6 +54,11 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/signup',
+      name: 'Signup',
+      component: Signup
     },
     {
       path: '/me',
