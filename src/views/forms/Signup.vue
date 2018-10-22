@@ -15,9 +15,9 @@
 
         </textarea>
         <label>Password</label>
-        <input type="password" placeholder="*******" name="password">
+        <input type="password" placeholder="*******" name="password" required>
         <label>Confirm Password</label>
-        <input type="password" placeholder="*******" name="confirm_password">
+        <input type="password" placeholder="*******" name="confirm_password" required>
         <label>Website</label>
         <input name="url" placeholder="https://github.com/johndoe">
         <label>Profile Picture</label>
